@@ -139,8 +139,14 @@
                 </div>
             </div>
         </div>
-        <script>
+        <script text/javascript>
             
+            $('#submit').on('click', function(){
+                if('#name').val() === ''){
+                    alert("you have to enter a name");
+                    return;
+                }
+            })
         </script>
     </body>
 </html>
