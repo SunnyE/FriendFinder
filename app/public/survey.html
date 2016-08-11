@@ -157,8 +157,19 @@
 				    photo: $('#image').val(),
 				    scores: responses
                 };
+                var current = window.location.origin;
 
-            })
+                $.post(current + "/api/friends", userObject).done(function(data){
+                    $('#friendInfo').html('<h3>' + data.name + "</h3><br><img src=" + data.photo + "style='width:300px;'>");
+                })
+                $('#name').val('');
+                $('#image').val('');
+                $('input:radio').attr("checked", false);
+                $('closedModal').on('click', function(){
+                    $("#friendInfo").html("");
+                });
+                return;
+            });
         </script>
     </body>
 </html>
